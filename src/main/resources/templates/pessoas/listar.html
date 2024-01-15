@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- LINK PARA ICONES: https://materializecss.com/icons.html -->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link type="text/css" rel="stylesheet"
+              href="../css/materialize.min.css" media="screen,projection" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet" />
+        <meta charset="UTF-8" />
+        <title>TUTOR</title>       
+    </head>
+    
+    <body class="grey lighten-3">
+        <div id="listaDeTutores">
+            <h3 class="main-title center">Lista de Tutores<h3>
+            <div class="container">
+                <table class="striped responsive-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Nome</th>
+                            <th style="text-align: center;">Telefone</th>
+                        </tr>
+                    </thead>
+                    <tr th:each="pessoa : ${pessoas}">
+                        <td style="text-align: center;"><span th:text="${pessoa.nome}"></span></td>
+                        <td style="text-align: center;"><span th:text="${pessoa.telefone}"></span></td>
+                        <td style="text-align: center;">
+                            <a th:href="@{'/pessoas/visualizar/'+${pessoa.id}}" title="Visualizar">
+                                <i class="tiny material-icons ">perm_contact_calendar</i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div><!-- Fim DIV listar alunos -->
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+    </body>
+</html>
